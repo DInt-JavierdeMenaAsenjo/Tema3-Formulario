@@ -1,0 +1,84 @@
+﻿<Window x:Class="Tema3_Formulario.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tema3_Formulario"
+        mc:Ignorable="d"
+        Icon="assets/form.ico"
+        Title="Formulario" MinHeight="550" Height="580" MinWidth="850" Width="850">
+    <DockPanel Margin="5">
+
+        <TextBlock DockPanel.Dock="Top" FontSize="40" FontWeight="Bold" TextAlignment="Center" Margin="10">Formulario</TextBlock>
+        <DockPanel DockPanel.Dock="Bottom" LastChildFill="False"  VerticalAlignment="Bottom">
+            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                <Button Width="90" Height="28" Margin="3">Aceptar</Button>
+                <Button Width="90" Margin="3">Cancelar</Button>
+            </StackPanel>
+            <TextBlock DockPanel.Dock="Bottom" FontSize="20" FontStyle="Italic" >Javier de Mena</TextBlock>
+        </DockPanel>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <Image Grid.Column="1" Grid.Row="0" VerticalAlignment="top" Source="assets/foto.jpg" Margin="10"  Stretch="fill"></Image>
+            <StackPanel Orientation="Vertical">
+                <Border Grid.Column="0" Grid.Row="0" BorderThickness="3" BorderBrush="Black" Background="SkyBlue" CornerRadius="5" Margin="10">
+                    <Border.Effect>
+                        <DropShadowEffect Direction="320" ShadowDepth="4"/>
+                    </Border.Effect>
+                    <StackPanel Orientation="Vertical" Margin="3">
+                        <DockPanel Margin="5">
+                            <TextBlock DockPanel.Dock="Left" Width="60">Nombre</TextBlock>
+                            <Image DockPanel.Dock="Right" Source="assets/info.png" ToolTip="Máximo 100 caracteres" Width="20" Margin="3,0,0,0"></Image>
+                            <TextBox></TextBox>
+                        </DockPanel>
+                        <DockPanel Margin="5">
+                            <TextBlock DockPanel.Dock="Left" Width="60">Edad</TextBlock>
+                            <Image DockPanel.Dock="Right" Source="assets/info.png" ToolTip="Número entre 0 y 100" Width="20" Margin="3,0,0,0"></Image>
+                            <TextBox></TextBox>
+                        </DockPanel>
+                        <DockPanel Margin="5">
+                            <TextBlock DockPanel.Dock="Left" Width="60">Direccion</TextBlock>
+                            <Image DockPanel.Dock="Right" Source="assets/info.png" ToolTip="Incluir el código postal" Width="20" Margin="3,0,0,0"></Image>
+                            <TextBox></TextBox>
+                        </DockPanel>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="1" BorderThickness="3" BorderBrush="Black" Background="LightYellow" CornerRadius="5" Margin="10">
+                    <Border.Effect>
+                        <DropShadowEffect Direction="320" ShadowDepth="4"/>
+                    </Border.Effect>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <GroupBox Header="Aficiones" Width="200" Margin="5">
+                            <StackPanel Orientation="Vertical" Margin="10">
+                                <CheckBox Content="Hacer deporte"></CheckBox>
+                                <CheckBox Content="Viajar"></CheckBox>
+                                <CheckBox Content="Ver series"></CheckBox>
+                                <CheckBox Content="Leer comics"></CheckBox>
+                            </StackPanel>
+                        </GroupBox>
+                        <GroupBox Header="Estado civil" Width="200" Margin="5">
+                            <StackPanel Orientation="Vertical" Margin="10">
+                                <RadioButton Content="Soltero" GroupName="estado" IsChecked="True"></RadioButton>
+                                <RadioButton Content="Casado" GroupName="estado"></RadioButton>
+                                <RadioButton Content="Divorciado" GroupName="estado"></RadioButton>
+                                <RadioButton Content="Viudo" GroupName="estado"></RadioButton>
+                            </StackPanel>
+                        </GroupBox>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+            
+        </Grid>
+        
+        
+        
+    </DockPanel>
+</Window>
