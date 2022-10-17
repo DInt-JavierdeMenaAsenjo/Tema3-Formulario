@@ -7,13 +7,59 @@
         mc:Ignorable="d"
         Icon="assets/form.ico"
         Title="Formulario" MinHeight="550" Height="580" MinWidth="850" Width="850">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type Border}" x:Key="BordePaneles">
+            <!--BorderThickness="3" BorderBrush="Black CornerRadius="5" Margin="10"" -->
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Direction="320" ShadowDepth="4"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style TargetType="{x:Type StackPanel}" x:Key="VerticalStack">
+            <Setter Property="Orientation" Value="Vertical"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style TargetType="{x:Type GroupBox}">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+
+        <Style TargetType="{x:Type TextBlock}" x:Key="TextBlockAzul">
+            <Setter Property="DockPanel.Dock" Value="Left"/>
+            <Setter Property="Width" Value="60"/>
+        </Style>
+
+        <Style TargetType="{x:Type Image}" x:Key="ImageInfo">
+            <Setter Property="DockPanel.Dock" Value="Right"/>
+            <Setter Property="Width" Value="20"/>
+            <Setter Property="Source" Value="assets/info.png"/>
+            <Setter Property="Margin" Value="3,0,0,0"/>
+        </Style>
+
+        <Style TargetType="{x:Type RadioButton}">
+            <Setter Property="GroupName" Value="estado"/>
+        </Style>
+
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="90"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Height" Value="28"/>
+        </Style>
+    </Window.Resources>
+    
     <DockPanel Margin="5">
 
         <TextBlock DockPanel.Dock="Top" FontSize="40" FontWeight="Bold" TextAlignment="Center" Margin="10">Formulario</TextBlock>
         <DockPanel DockPanel.Dock="Bottom" LastChildFill="False"  VerticalAlignment="Bottom">
             <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
-                <Button Width="90" Height="28" Margin="3">Aceptar</Button>
-                <Button Width="90" Margin="3">Cancelar</Button>
+                <Button>Aceptar</Button>
+                <Button>Cancelar</Button>
             </StackPanel>
             <TextBlock DockPanel.Dock="Bottom" FontSize="20" FontStyle="Italic" >Javier de Mena</TextBlock>
         </DockPanel>
@@ -29,47 +75,41 @@
             
             <Image Grid.Column="1" Grid.Row="0" VerticalAlignment="top" Source="assets/foto.jpg" Margin="10"  Stretch="fill"></Image>
             <StackPanel Orientation="Vertical">
-                <Border Grid.Column="0" Grid.Row="0" BorderThickness="3" BorderBrush="Black" Background="SkyBlue" CornerRadius="5" Margin="10">
-                    <Border.Effect>
-                        <DropShadowEffect Direction="320" ShadowDepth="4"/>
-                    </Border.Effect>
+                <Border Grid.Column="0" Grid.Row="0" Background="SkyBlue"  Style="{StaticResource BordePaneles}">
                     <StackPanel Orientation="Vertical" Margin="3">
                         <DockPanel Margin="5">
-                            <TextBlock DockPanel.Dock="Left" Width="60">Nombre</TextBlock>
-                            <Image DockPanel.Dock="Right" Source="assets/info.png" ToolTip="Máximo 100 caracteres" Width="20" Margin="3,0,0,0"></Image>
+                            <TextBlock Style="{StaticResource TextBlockAzul}">Nombre</TextBlock>
+                            <Image ToolTip="Máximo 100 caracteres" Style="{StaticResource ImageInfo}"></Image>
                             <TextBox></TextBox>
                         </DockPanel>
                         <DockPanel Margin="5">
-                            <TextBlock DockPanel.Dock="Left" Width="60">Edad</TextBlock>
-                            <Image DockPanel.Dock="Right" Source="assets/info.png" ToolTip="Número entre 0 y 100" Width="20" Margin="3,0,0,0"></Image>
+                            <TextBlock Style="{StaticResource TextBlockAzul}">Edad</TextBlock>
+                            <Image ToolTip="Número entre 0 y 100" Style="{StaticResource ImageInfo}"></Image>
                             <TextBox></TextBox>
                         </DockPanel>
                         <DockPanel Margin="5">
-                            <TextBlock DockPanel.Dock="Left" Width="60">Direccion</TextBlock>
-                            <Image DockPanel.Dock="Right" Source="assets/info.png" ToolTip="Incluir el código postal" Width="20" Margin="3,0,0,0"></Image>
+                            <TextBlock Style="{StaticResource TextBlockAzul}">Direccion</TextBlock>
+                            <Image ToolTip="Incluir el código postal" Style="{StaticResource ImageInfo}"></Image>
                             <TextBox></TextBox>
                         </DockPanel>
                     </StackPanel>
                 </Border>
-                <Border Grid.Column="0" Grid.Row="1" BorderThickness="3" BorderBrush="Black" Background="LightYellow" CornerRadius="5" Margin="10">
-                    <Border.Effect>
-                        <DropShadowEffect Direction="320" ShadowDepth="4"/>
-                    </Border.Effect>
+                <Border Grid.Column="0" Grid.Row="1" Background="LightYellow" Style="{StaticResource BordePaneles}">
                     <StackPanel Orientation="Horizontal" Margin="5">
-                        <GroupBox Header="Aficiones" Width="200" Margin="5">
-                            <StackPanel Orientation="Vertical" Margin="10">
+                        <GroupBox Header="Aficiones">
+                            <StackPanel Style="{StaticResource VerticalStack}">
                                 <CheckBox Content="Hacer deporte"></CheckBox>
                                 <CheckBox Content="Viajar"></CheckBox>
                                 <CheckBox Content="Ver series"></CheckBox>
                                 <CheckBox Content="Leer comics"></CheckBox>
                             </StackPanel>
                         </GroupBox>
-                        <GroupBox Header="Estado civil" Width="200" Margin="5">
-                            <StackPanel Orientation="Vertical" Margin="10">
-                                <RadioButton Content="Soltero" GroupName="estado" IsChecked="True"></RadioButton>
-                                <RadioButton Content="Casado" GroupName="estado"></RadioButton>
-                                <RadioButton Content="Divorciado" GroupName="estado"></RadioButton>
-                                <RadioButton Content="Viudo" GroupName="estado"></RadioButton>
+                        <GroupBox Header="Estado civil">
+                            <StackPanel Style="{StaticResource VerticalStack}">
+                                <RadioButton Content="Soltero" IsChecked="True"></RadioButton>
+                                <RadioButton Content="Casado"></RadioButton>
+                                <RadioButton Content="Divorciado"></RadioButton>
+                                <RadioButton Content="Viudo"></RadioButton>
                             </StackPanel>
                         </GroupBox>
                     </StackPanel>
